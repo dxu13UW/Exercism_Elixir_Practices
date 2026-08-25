@@ -1,0 +1,15 @@
+# Elixir / Mix build artifacts
+_build/
+deps/
+*.ez
+.fetch
+
+# ElixirLS / Editor caches
+.elixir_ls/
+.lexical/
+.next_ls/
+
+# System files
+.DS_Store
+*.swp
+*~
