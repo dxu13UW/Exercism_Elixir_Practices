@@ -1,4 +1,8 @@
 defmodule FlattenArray do
+  @moduledoc """
+  Exercism exercise - Flatten array
+  """
+
   @doc """
     Accept a list and return the list flattened without nil values.
 
@@ -11,8 +15,10 @@ defmodule FlattenArray do
       []
 
   """
-
   @spec flatten(list) :: list
   def flatten(list) do
+    list
+    |> List.flatten()
+    |> Enum.reject(&is_nil/1)
   end
 end
