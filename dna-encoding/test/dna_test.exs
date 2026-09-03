@@ -3,7 +3,7 @@ defmodule DNATest do
 
   describe "encode to 4-bit encoding" do
     @tag task_id: 1
-    test "space to 0b0000", do: assert(DNA.encode_nucleotide(?\s) == 0b0000)
+    test "?\\s to 0b0000", do: assert(DNA.encode_nucleotide(?\s) == 0b0000)
     @tag task_id: 1
     test "?A to 0b0001", do: assert(DNA.encode_nucleotide(?A) == 0b0001)
     @tag task_id: 1
@@ -16,7 +16,7 @@ defmodule DNATest do
 
   describe "decode to code point" do
     @tag task_id: 2
-    test "0b0000 to space", do: assert(DNA.decode_nucleotide(0b0000) == ?\s)
+    test "0b0000 to ?\\s", do: assert(DNA.decode_nucleotide(0b0000) == ?\s)
     @tag task_id: 2
     test "0b0001 to ?A", do: assert(DNA.decode_nucleotide(0b0001) == ?A)
     @tag task_id: 2

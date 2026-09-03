@@ -41,11 +41,11 @@ defmodule DNA do
 
   def decode(dna), do: do_decode(dna, ~c"")
 
-  defp do_decode(<<>>, acc), do: reverse(acc, ~c"")
+  defp do_decode(<<>>, charlist), do: reverse(charlist, ~c"")
 
-  defp do_decode(<<first::4, rest::bitstring>>, acc) do
+  defp do_decode(<<first::4, rest::bitstring>>, charlist) do
     decoded = decode_nucleotide(first)
-    do_decode(rest, [decoded | acc])
+    do_decode(rest, [decoded | charlist])
   end
 
   defp reverse([], acc), do: acc
