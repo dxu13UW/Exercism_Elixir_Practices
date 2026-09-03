@@ -1,0 +1,224 @@
+Compiling 1 file (.ex)
+Generated dna app
+Running ExUnit with seed: 0, max_cases: 1
+Excluding tags: [:pending]
+
+
+DNATest [test/dna_test.exs]
+  * test encode to 4-bit encoding ?\s to 0b0000 [L#6]  * test encode to 4-bit encoding ?\s to 0b0000 (0.00ms) [L#6]
+  * test encode to 4-bit encoding ?A to 0b0001 [L#8]  * test encode to 4-bit encoding ?A to 0b0001 (0.00ms) [L#8]
+  * test encode to 4-bit encoding ?C to 0b0010 [L#10]  * test encode to 4-bit encoding ?C to 0b0010 (0.00ms) [L#10]
+  * test encode to 4-bit encoding ?G to 0b0100 [L#12]  * test encode to 4-bit encoding ?G to 0b0100 (0.00ms) [L#12]
+  * test encode to 4-bit encoding ?T to 0b1000 [L#14]  * test encode to 4-bit encoding ?T to 0b1000 (0.00ms) [L#14]
+  * test decode to code point 0b0000 to ?\s [L#19]  * test decode to code point 0b0000 to ?\s (1.1ms) [L#19]
+
+  1) test decode to code point 0b0000 to ?\s (DNATest)
+     test/dna_test.exs:19
+     Assertion with == failed
+     code:  assert DNA.decode_nucleotide(0) == 32
+     left:  nil
+     right: 32
+     stacktrace:
+       test/dna_test.exs:19: (test)
+
+  * test decode to code point 0b0001 to ?A [L#21]  * test decode to code point 0b0001 to ?A (0.00ms) [L#21]
+
+  2) test decode to code point 0b0001 to ?A (DNATest)
+     test/dna_test.exs:21
+     Assertion with == failed
+     code:  assert DNA.decode_nucleotide(1) == 65
+     left:  nil
+     right: 65
+     stacktrace:
+       test/dna_test.exs:21: (test)
+
+  * test decode to code point 0b0010 to ?C [L#23]  * test decode to code point 0b0010 to ?C (0.00ms) [L#23]
+
+  3) test decode to code point 0b0010 to ?C (DNATest)
+     test/dna_test.exs:23
+     Assertion with == failed
+     code:  assert DNA.decode_nucleotide(2) == 67
+     left:  nil
+     right: 67
+     stacktrace:
+       test/dna_test.exs:23: (test)
+
+  * test decode to code point 0b0100 to ?G [L#25]  * test decode to code point 0b0100 to ?G (0.00ms) [L#25]
+
+  4) test decode to code point 0b0100 to ?G (DNATest)
+     test/dna_test.exs:25
+     Assertion with == failed
+     code:  assert DNA.decode_nucleotide(4) == 71
+     left:  nil
+     right: 71
+     stacktrace:
+       test/dna_test.exs:25: (test)
+
+  * test decode to code point 0b1000 to ?T [L#27]  * test decode to code point 0b1000 to ?T (0.00ms) [L#27]
+
+  5) test decode to code point 0b1000 to ?T (DNATest)
+     test/dna_test.exs:27
+     Assertion with == failed
+     code:  assert DNA.decode_nucleotide(8) == 84
+     left:  nil
+     right: 84
+     stacktrace:
+       test/dna_test.exs:27: (test)
+
+  * test encoding ' ' [L#32]  * test encoding ' ' (0.00ms) [L#32]
+
+  6) test encoding ' ' (DNATest)
+     test/dna_test.exs:32
+     Assertion with == failed
+     code:  assert DNA.encode(~c" ") == <<0::4>>
+     left:  nil
+     right: <<0::size(4)>>
+     stacktrace:
+       test/dna_test.exs:32: (test)
+
+  * test encoding 'A' [L#34]  * test encoding 'A' (0.00ms) [L#34]
+
+  7) test encoding 'A' (DNATest)
+     test/dna_test.exs:34
+     Assertion with == failed
+     code:  assert DNA.encode(~c"A") == <<1::4>>
+     left:  nil
+     right: <<1::size(4)>>
+     stacktrace:
+       test/dna_test.exs:34: (test)
+
+  * test encoding 'C' [L#36]  * test encoding 'C' (0.00ms) [L#36]
+
+  8) test encoding 'C' (DNATest)
+     test/dna_test.exs:36
+     Assertion with == failed
+     code:  assert DNA.encode(~c"C") == <<2::4>>
+     left:  nil
+     right: <<2::size(4)>>
+     stacktrace:
+       test/dna_test.exs:36: (test)
+
+  * test encoding 'G' [L#38]  * test encoding 'G' (0.00ms) [L#38]
+
+  9) test encoding 'G' (DNATest)
+     test/dna_test.exs:38
+     Assertion with == failed
+     code:  assert DNA.encode(~c"G") == <<4::4>>
+     left:  nil
+     right: <<4::size(4)>>
+     stacktrace:
+       test/dna_test.exs:38: (test)
+
+  * test encoding 'T' [L#40]  * test encoding 'T' (0.00ms) [L#40]
+
+ 10) test encoding 'T' (DNATest)
+     test/dna_test.exs:40
+     Assertion with == failed
+     code:  assert DNA.encode(~c"T") == <<8::4>>
+     left:  nil
+     right: <<8::size(4)>>
+     stacktrace:
+       test/dna_test.exs:40: (test)
+
+  * test encoding ' ACGT' [L#43]  * test encoding ' ACGT' (0.00ms) [L#43]
+
+ 11) test encoding ' ACGT' (DNATest)
+     test/dna_test.exs:43
+     Assertion with == failed
+     code:  assert DNA.encode(~c" ACGT") == <<0::4, 1::4, 2::4, 4::4, 8::4>>
+     left:  nil
+     right: <<1, 36, 8::size(4)>>
+     stacktrace:
+       test/dna_test.exs:45: (test)
+
+  * test encoding 'TGCA ' [L#48]  * test encoding 'TGCA ' (0.00ms) [L#48]
+
+ 12) test encoding 'TGCA ' (DNATest)
+     test/dna_test.exs:48
+     Assertion with == failed
+     code:  assert DNA.encode(~c"TGCA ") == <<8::4, 4::4, 2::4, 1::4, 0::4>>
+     left:  nil
+     right: <<132, 33, 0::size(4)>>
+     stacktrace:
+       test/dna_test.exs:50: (test)
+
+  * test decoding ' ' [L#55]  * test decoding ' ' (0.00ms) [L#55]
+
+ 13) test decoding ' ' (DNATest)
+     test/dna_test.exs:55
+     Assertion with == failed
+     code:  assert DNA.decode(<<0::4>>) == ~c" "
+     left:  nil
+     right: ~c" "
+     stacktrace:
+       test/dna_test.exs:55: (test)
+
+  * test decoding 'A' [L#57]  * test decoding 'A' (0.00ms) [L#57]
+
+ 14) test decoding 'A' (DNATest)
+     test/dna_test.exs:57
+     Assertion with == failed
+     code:  assert DNA.decode(<<1::4>>) == ~c"A"
+     left:  nil
+     right: ~c"A"
+     stacktrace:
+       test/dna_test.exs:57: (test)
+
+  * test decoding 'C' [L#59]  * test decoding 'C' (0.00ms) [L#59]
+
+ 15) test decoding 'C' (DNATest)
+     test/dna_test.exs:59
+     Assertion with == failed
+     code:  assert DNA.decode(<<2::4>>) == ~c"C"
+     left:  nil
+     right: ~c"C"
+     stacktrace:
+       test/dna_test.exs:59: (test)
+
+  * test decoding 'G' [L#61]  * test decoding 'G' (0.00ms) [L#61]
+
+ 16) test decoding 'G' (DNATest)
+     test/dna_test.exs:61
+     Assertion with == failed
+     code:  assert DNA.decode(<<4::4>>) == ~c"G"
+     left:  nil
+     right: ~c"G"
+     stacktrace:
+       test/dna_test.exs:61: (test)
+
+  * test decoding 'T' [L#63]  * test decoding 'T' (0.00ms) [L#63]
+
+ 17) test decoding 'T' (DNATest)
+     test/dna_test.exs:63
+     Assertion with == failed
+     code:  assert DNA.decode(<<8::4>>) == ~c"T"
+     left:  nil
+     right: ~c"T"
+     stacktrace:
+       test/dna_test.exs:63: (test)
+
+  * test decoding ' ACGT' [L#66]  * test decoding ' ACGT' (0.00ms) [L#66]
+
+ 18) test decoding ' ACGT' (DNATest)
+     test/dna_test.exs:66
+     Assertion with == failed
+     code:  assert DNA.decode(<<0::4, 1::4, 2::4, 4::4, 8::4>>) == ~c" ACGT"
+     left:  nil
+     right: ~c" ACGT"
+     stacktrace:
+       test/dna_test.exs:68: (test)
+
+  * test decoding 'TGCA ' [L#71]  * test decoding 'TGCA ' (0.00ms) [L#71]
+
+ 19) test decoding 'TGCA ' (DNATest)
+     test/dna_test.exs:71
+     Assertion with == failed
+     code:  assert DNA.decode(<<8::4, 4::4, 2::4, 1::4, 0::4>>) == ~c"TGCA "
+     left:  nil
+     right: ~c"TGCA "
+     stacktrace:
+       test/dna_test.exs:73: (test)
+
+
+Finished in 0.04 seconds (0.00s async, 0.04s sync)
+24 tests, 19 failures
