@@ -13,3 +13,5 @@ deps/
 .DS_Store
 *.swp
 *~
+elixir
+elixir/
