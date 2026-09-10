@@ -39,11 +39,7 @@ defmodule ListOps do
   defp do_map([], _f, acc), do: reverse(acc)
 
   defp do_map([head | tail], f, acc) do
-    if(f.(head)) do
-      do_map(tail, f, [f.(head) | acc])
-    else
-      do_map(tail, f, acc)
-    end
+    do_map(tail, f, [f.(head) | acc])
   end
 
   @spec filter(list, (any -> as_boolean(term))) :: list
@@ -79,33 +75,23 @@ defmodule ListOps do
 
   @spec append(list, list) :: list
   def append(a, b) do
-    do_append(a, b, [])
+    do_append(reverse(a), b)
   end
 
-  defp do_append([], [], acc), do: reverse(acc)
+  defp do_append([], b), do: b
 
-  defp do_append([], [head | tail], acc) do
-    do_append([], tail, [head | acc])
+  defp do_append([head | tail], b) do
+    do_append(tail, [head | b])
   end
-
-  defp do_append([head | tail], b, acc) do
-    do_append(tail, b, [head | acc])
-  end
-
-  #  def append([], list2), do: list2
-
-  #  def append([head | tail], list2) do
-  #    [head | append(tail, list2)]
-  #  end
 
   @spec concat([[any]]) :: [any]
-  def concat(ll), do: do_concat(ll, [])
+  def concat(ll) do
+    do_concat(reverse(ll), [])
+  end
 
-  defp do_concat([], acc), do: reverse(acc)
+  defp do_concat([], acc), do: acc
 
-  defp do_concat([[] | rest], acc), do: do_concat(rest, acc)
-
-  defp do_concat([[head | tail] | rest], acc) do
-    do_concat([tail | rest], [head | acc])
+  defp do_concat([head | tail], acc) do
+    do_concat(tail, append(head, acc))
   end
 end
