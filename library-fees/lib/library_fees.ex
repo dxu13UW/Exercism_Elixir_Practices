@@ -16,14 +16,6 @@ defmodule LibraryFees do
   end
 
   def return_date(checkout_datetime) do
-    # if before_noon?(checkout_datetime) do
-    #   NaiveDateTime.to_date(checkout_datetime)
-    #   |> Date.add(28)
-    # else
-    #   NaiveDateTime.to_date(checkout_datetime)
-    #   |> Date.add(29)
-    # end
-
     days = if before_noon?(checkout_datetime), do: 28, else: 29
 
     checkout_datetime
