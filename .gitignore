@@ -15,3 +15,4 @@ deps/
 *~
 elixir
 elixir/
+.aider*
